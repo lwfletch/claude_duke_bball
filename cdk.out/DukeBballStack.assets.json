@@ -1,0 +1,36 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2": {
+      "displayName": "GetPlayersFunction/Code",
+      "source": {
+        "path": "asset.231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-us-east-1-f7cfa25c": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1",
+          "objectKey": "231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-us-east-1"
+        }
+      }
+    },
+    "8cf827263c35128ad23bb8e95d6212c0810de1f761fd2474266e9a8aeec88984": {
+      "displayName": "DukeBballStack Template",
+      "source": {
+        "path": "DukeBballStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-us-east-1-f78e531b": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1",
+          "objectKey": "8cf827263c35128ad23bb8e95d6212c0810de1f761fd2474266e9a8aeec88984.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

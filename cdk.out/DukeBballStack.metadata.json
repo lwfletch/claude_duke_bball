@@ -1,0 +1,843 @@
+{
+  "/DukeBballStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukePlayerStatsTable": [
+    {
+      "type": "aws:cdk:hasPhysicalName",
+      "data": {
+        "Ref": "DukePlayerStatsTable53332B0E"
+      }
+    }
+  ],
+  "/DukeBballStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukePlayerStatsTable/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukePlayerStatsTable53332B0E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Table2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/GetPlayersFunction/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GetPlayersFunction40F7C6E3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/CreatePlayerFunction/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CreatePlayerFunctionF778D717"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/UpdateStatsFunction/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UpdateStatsFunction86ED9EA9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DeletePlayerFunction/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DeletePlayerFunctionFD6F22EC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiF66FA60C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Account": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiAccount3FCCF5F1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Endpoint": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiEndpoint1F9F469D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/GetPlayersFunction/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GetPlayersFunctionServiceRoleF0594CF9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/CreatePlayerFunction/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CreatePlayerFunctionServiceRole7FC164DF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/UpdateStatsFunction/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UpdateStatsFunctionServiceRoleFFF51B6F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DeletePlayerFunction/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DeletePlayerFunctionServiceRole90082632"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/CloudWatchRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiCloudWatchRoleE6883003"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Deployment/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiDeploymentE17578916e4b80fe598f8b30c773ca0d24284ab5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/DeploymentStage.prod/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiDeploymentStageprod60AC889D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/GetPlayersFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GetPlayersFunctionServiceRoleDefaultPolicy2309EB9F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantReadData in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/CreatePlayerFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CreatePlayerFunctionServiceRoleDefaultPolicy244D5960"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantWriteData in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/UpdateStatsFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UpdateStatsFunctionServiceRoleDefaultPolicy792394B8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantWriteData in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DeletePlayerFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DeletePlayerFunctionServiceRoleDefaultPolicy1BE7C572"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantWriteData in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/OPTIONS/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiOPTIONS7B411B78"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new RestApi2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:61273)",
+        "Kernel.create (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:52004)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayers9ADDC533"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...RootResource.addResource in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/OPTIONS/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersOPTIONS83006EE2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...RootResource.addResource in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridC5EC9212"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addResource in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/GET/ApiPermission.DukeBballStackDukeBballApiF4EAD639.GET..players": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersGETApiPermissionDukeBballStackDukeBballApiF4EAD639GETplayers6306704D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/GET/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.GET..players": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersGETApiPermissionTestDukeBballStackDukeBballApiF4EAD639GETplayers3CEB7EC6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/GET/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersGETF901B19F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/POST/ApiPermission.DukeBballStackDukeBballApiF4EAD639.POST..players": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersPOSTApiPermissionDukeBballStackDukeBballApiF4EAD639POSTplayers9D578901"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/POST/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.POST..players": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersPOSTApiPermissionTestDukeBballStackDukeBballApiF4EAD639POSTplayersD0C7942D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/POST/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersPOST2919C4EB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/OPTIONS/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridOPTIONS9B1A90DA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addResource in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridstats31C39D82"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addResource in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/GET/ApiPermission.DukeBballStackDukeBballApiF4EAD639.GET..players.{player_id}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridGETApiPermissionDukeBballStackDukeBballApiF4EAD639GETplayersplayeridCCBD7D44"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/GET/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.GET..players.{player_id}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridGETApiPermissionTestDukeBballStackDukeBballApiF4EAD639GETplayersplayeridE262CD1E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/GET/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridGETA33BD1C0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/DELETE/ApiPermission.DukeBballStackDukeBballApiF4EAD639.DELETE..players.{player_id}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridDELETEApiPermissionDukeBballStackDukeBballApiF4EAD639DELETEplayersplayerid39821233"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/DELETE/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.DELETE..players.{player_id}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridDELETEApiPermissionTestDukeBballStackDukeBballApiF4EAD639DELETEplayersplayerid2DDCE149"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/DELETE/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridDELETEA06781F7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/OPTIONS/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridstatsOPTIONSBB477D51"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addResource in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/PUT/ApiPermission.DukeBballStackDukeBballApiF4EAD639.PUT..players.{player_id}.stats": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridstatsPUTApiPermissionDukeBballStackDukeBballApiF4EAD639PUTplayersplayeridstats5C44C78D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/PUT/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.PUT..players.{player_id}.stats": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridstatsPUTApiPermissionTestDukeBballStackDukeBballApiF4EAD639PUTplayersplayeridstats6FC67575"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/PUT/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DukeBballApiplayersplayeridstatsPUT68A4CEBF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addMethod in aws-cdk-lib...",
+        "/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:543 (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:5434)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:69992)",
+        "Kernel.invoke (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:54294)",
+        "KernelHost.processRequest (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:212888)",
+        "KernelHost.run (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211943)",
+        "Immediate._onImmediate (/private/var/folders/tt/sb6wjrp97sv544t0x6037trr0000gn/T/tmpbq5_l9_b/lib/program.js:1:211987)",
+        "...node internals..."
+      ]
+    }
+  ]
+}

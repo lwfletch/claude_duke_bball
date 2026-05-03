@@ -1,0 +1,1551 @@
+{
+ "Resources": {
+  "DukePlayerStatsTable53332B0E": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "player_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "season",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "jersey_number",
+      "AttributeType": "S"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "jersey-index",
+      "KeySchema": [
+       {
+        "AttributeName": "jersey_number",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "season",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "player_id",
+      "KeyType": "HASH"
+     },
+     {
+      "AttributeName": "season",
+      "KeyType": "RANGE"
+     }
+    ],
+    "TableName": "duke-player-stats"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukePlayerStatsTable/Resource"
+   }
+  },
+  "GetPlayersFunctionServiceRoleF0594CF9": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/GetPlayersFunction/ServiceRole/Resource"
+   }
+  },
+  "GetPlayersFunctionServiceRoleDefaultPolicy2309EB9F": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:Query",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "DukePlayerStatsTable53332B0E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "DukePlayerStatsTable53332B0E",
+             "Arn"
+            ]
+           },
+           "/index/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "DukePlayerStatsTable53332B0E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "DukePlayerStatsTable53332B0E",
+             "Arn"
+            ]
+           },
+           "/index/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GetPlayersFunctionServiceRoleDefaultPolicy2309EB9F",
+    "Roles": [
+     {
+      "Ref": "GetPlayersFunctionServiceRoleF0594CF9"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/GetPlayersFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "GetPlayersFunction40F7C6E3": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1"
+     },
+     "S3Key": "231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "DukePlayerStatsTable53332B0E"
+      }
+     }
+    },
+    "Handler": "handler.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "GetPlayersFunctionServiceRoleF0594CF9",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.12",
+    "Timeout": 10
+   },
+   "DependsOn": [
+    "GetPlayersFunctionServiceRoleDefaultPolicy2309EB9F",
+    "GetPlayersFunctionServiceRoleF0594CF9"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/GetPlayersFunction/Resource",
+    "aws:asset:path": "asset.231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CreatePlayerFunctionServiceRole7FC164DF": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/CreatePlayerFunction/ServiceRole/Resource"
+   }
+  },
+  "CreatePlayerFunctionServiceRoleDefaultPolicy244D5960": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "DukePlayerStatsTable53332B0E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "DukePlayerStatsTable53332B0E",
+             "Arn"
+            ]
+           },
+           "/index/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CreatePlayerFunctionServiceRoleDefaultPolicy244D5960",
+    "Roles": [
+     {
+      "Ref": "CreatePlayerFunctionServiceRole7FC164DF"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/CreatePlayerFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CreatePlayerFunctionF778D717": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1"
+     },
+     "S3Key": "231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "DukePlayerStatsTable53332B0E"
+      }
+     }
+    },
+    "Handler": "create.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CreatePlayerFunctionServiceRole7FC164DF",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.12",
+    "Timeout": 10
+   },
+   "DependsOn": [
+    "CreatePlayerFunctionServiceRoleDefaultPolicy244D5960",
+    "CreatePlayerFunctionServiceRole7FC164DF"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/CreatePlayerFunction/Resource",
+    "aws:asset:path": "asset.231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "UpdateStatsFunctionServiceRoleFFF51B6F": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/UpdateStatsFunction/ServiceRole/Resource"
+   }
+  },
+  "UpdateStatsFunctionServiceRoleDefaultPolicy792394B8": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "DukePlayerStatsTable53332B0E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "DukePlayerStatsTable53332B0E",
+             "Arn"
+            ]
+           },
+           "/index/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "UpdateStatsFunctionServiceRoleDefaultPolicy792394B8",
+    "Roles": [
+     {
+      "Ref": "UpdateStatsFunctionServiceRoleFFF51B6F"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/UpdateStatsFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "UpdateStatsFunction86ED9EA9": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1"
+     },
+     "S3Key": "231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "DukePlayerStatsTable53332B0E"
+      }
+     }
+    },
+    "Handler": "update_stats.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "UpdateStatsFunctionServiceRoleFFF51B6F",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.12",
+    "Timeout": 10
+   },
+   "DependsOn": [
+    "UpdateStatsFunctionServiceRoleDefaultPolicy792394B8",
+    "UpdateStatsFunctionServiceRoleFFF51B6F"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/UpdateStatsFunction/Resource",
+    "aws:asset:path": "asset.231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "DeletePlayerFunctionServiceRole90082632": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DeletePlayerFunction/ServiceRole/Resource"
+   }
+  },
+  "DeletePlayerFunctionServiceRoleDefaultPolicy1BE7C572": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "DukePlayerStatsTable53332B0E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "DukePlayerStatsTable53332B0E",
+             "Arn"
+            ]
+           },
+           "/index/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "DeletePlayerFunctionServiceRoleDefaultPolicy1BE7C572",
+    "Roles": [
+     {
+      "Ref": "DeletePlayerFunctionServiceRole90082632"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DeletePlayerFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "DeletePlayerFunctionFD6F22EC": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1"
+     },
+     "S3Key": "231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "DukePlayerStatsTable53332B0E"
+      }
+     }
+    },
+    "Handler": "delete.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "DeletePlayerFunctionServiceRole90082632",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.12",
+    "Timeout": 10
+   },
+   "DependsOn": [
+    "DeletePlayerFunctionServiceRoleDefaultPolicy1BE7C572",
+    "DeletePlayerFunctionServiceRole90082632"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DeletePlayerFunction/Resource",
+    "aws:asset:path": "asset.231c968f71f1c909b3171b22b1f20e6b1d8fd7d4b87c566e369866627b79d3d2",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "DukeBballApiF66FA60C": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "Description": "Serverless API for Duke basketball player stats",
+    "Name": "Duke Basketball Stats API"
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Resource"
+   }
+  },
+  "DukeBballApiCloudWatchRoleE6883003": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+       ]
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/CloudWatchRole/Resource"
+   }
+  },
+  "DukeBballApiAccount3FCCF5F1": {
+   "Type": "AWS::ApiGateway::Account",
+   "Properties": {
+    "CloudWatchRoleArn": {
+     "Fn::GetAtt": [
+      "DukeBballApiCloudWatchRoleE6883003",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "DukeBballApiF66FA60C"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Account"
+   }
+  },
+  "DukeBballApiDeploymentE17578916e4b80fe598f8b30c773ca0d24284ab5": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "Description": "Serverless API for Duke basketball player stats",
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "DependsOn": [
+    "DukeBballApiOPTIONS7B411B78",
+    "DukeBballApiplayersplayeridDELETEA06781F7",
+    "DukeBballApiplayersplayeridGETA33BD1C0",
+    "DukeBballApiplayersplayeridOPTIONS9B1A90DA",
+    "DukeBballApiplayersplayeridC5EC9212",
+    "DukeBballApiplayersplayeridstatsOPTIONSBB477D51",
+    "DukeBballApiplayersplayeridstatsPUT68A4CEBF",
+    "DukeBballApiplayersplayeridstats31C39D82",
+    "DukeBballApiplayersGETF901B19F",
+    "DukeBballApiplayersOPTIONS83006EE2",
+    "DukeBballApiplayersPOST2919C4EB",
+    "DukeBballApiplayers9ADDC533"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Deployment/Resource",
+    "aws:cdk:do-not-refactor": true
+   }
+  },
+  "DukeBballApiDeploymentStageprod60AC889D": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "DeploymentId": {
+     "Ref": "DukeBballApiDeploymentE17578916e4b80fe598f8b30c773ca0d24284ab5"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    },
+    "StageName": "prod"
+   },
+   "DependsOn": [
+    "DukeBballApiAccount3FCCF5F1"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/DeploymentStage.prod/Resource"
+   }
+  },
+  "DukeBballApiOPTIONS7B411B78": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Fn::GetAtt": [
+      "DukeBballApiF66FA60C",
+      "RootResourceId"
+     ]
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/OPTIONS/Resource"
+   }
+  },
+  "DukeBballApiplayers9ADDC533": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "DukeBballApiF66FA60C",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "players",
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/Resource"
+   }
+  },
+  "DukeBballApiplayersOPTIONS83006EE2": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "DukeBballApiplayers9ADDC533"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/OPTIONS/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridC5EC9212": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "DukeBballApiplayers9ADDC533"
+    },
+    "PathPart": "{player_id}",
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridOPTIONS9B1A90DA": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "DukeBballApiplayersplayeridC5EC9212"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/OPTIONS/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridstats31C39D82": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "DukeBballApiplayersplayeridC5EC9212"
+    },
+    "PathPart": "stats",
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridstatsOPTIONSBB477D51": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "ApiKeyRequired": false,
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'"
+       },
+       "StatusCode": "204"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "204"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "DukeBballApiplayersplayeridstats31C39D82"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/OPTIONS/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridstatsPUTApiPermissionDukeBballStackDukeBballApiF4EAD639PUTplayersplayeridstats5C44C78D": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "UpdateStatsFunction86ED9EA9",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/",
+       {
+        "Ref": "DukeBballApiDeploymentStageprod60AC889D"
+       },
+       "/PUT/players/*/stats"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/PUT/ApiPermission.DukeBballStackDukeBballApiF4EAD639.PUT..players.{player_id}.stats"
+   }
+  },
+  "DukeBballApiplayersplayeridstatsPUTApiPermissionTestDukeBballStackDukeBballApiF4EAD639PUTplayersplayeridstats6FC67575": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "UpdateStatsFunction86ED9EA9",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/test-invoke-stage/PUT/players/*/stats"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/PUT/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.PUT..players.{player_id}.stats"
+   }
+  },
+  "DukeBballApiplayersplayeridstatsPUT68A4CEBF": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "PUT",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "UpdateStatsFunction86ED9EA9",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "DukeBballApiplayersplayeridstats31C39D82"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/stats/PUT/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridGETApiPermissionDukeBballStackDukeBballApiF4EAD639GETplayersplayeridCCBD7D44": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "GetPlayersFunction40F7C6E3",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/",
+       {
+        "Ref": "DukeBballApiDeploymentStageprod60AC889D"
+       },
+       "/GET/players/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/GET/ApiPermission.DukeBballStackDukeBballApiF4EAD639.GET..players.{player_id}"
+   }
+  },
+  "DukeBballApiplayersplayeridGETApiPermissionTestDukeBballStackDukeBballApiF4EAD639GETplayersplayeridE262CD1E": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "GetPlayersFunction40F7C6E3",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/test-invoke-stage/GET/players/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/GET/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.GET..players.{player_id}"
+   }
+  },
+  "DukeBballApiplayersplayeridGETA33BD1C0": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "GetPlayersFunction40F7C6E3",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "DukeBballApiplayersplayeridC5EC9212"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/GET/Resource"
+   }
+  },
+  "DukeBballApiplayersplayeridDELETEApiPermissionDukeBballStackDukeBballApiF4EAD639DELETEplayersplayerid39821233": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "DeletePlayerFunctionFD6F22EC",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/",
+       {
+        "Ref": "DukeBballApiDeploymentStageprod60AC889D"
+       },
+       "/DELETE/players/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/DELETE/ApiPermission.DukeBballStackDukeBballApiF4EAD639.DELETE..players.{player_id}"
+   }
+  },
+  "DukeBballApiplayersplayeridDELETEApiPermissionTestDukeBballStackDukeBballApiF4EAD639DELETEplayersplayerid2DDCE149": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "DeletePlayerFunctionFD6F22EC",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/test-invoke-stage/DELETE/players/*"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/DELETE/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.DELETE..players.{player_id}"
+   }
+  },
+  "DukeBballApiplayersplayeridDELETEA06781F7": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "DELETE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "DeletePlayerFunctionFD6F22EC",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "DukeBballApiplayersplayeridC5EC9212"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/{player_id}/DELETE/Resource"
+   }
+  },
+  "DukeBballApiplayersGETApiPermissionDukeBballStackDukeBballApiF4EAD639GETplayers6306704D": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "GetPlayersFunction40F7C6E3",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/",
+       {
+        "Ref": "DukeBballApiDeploymentStageprod60AC889D"
+       },
+       "/GET/players"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/GET/ApiPermission.DukeBballStackDukeBballApiF4EAD639.GET..players"
+   }
+  },
+  "DukeBballApiplayersGETApiPermissionTestDukeBballStackDukeBballApiF4EAD639GETplayers3CEB7EC6": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "GetPlayersFunction40F7C6E3",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/test-invoke-stage/GET/players"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/GET/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.GET..players"
+   }
+  },
+  "DukeBballApiplayersGETF901B19F": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "GetPlayersFunction40F7C6E3",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "DukeBballApiplayers9ADDC533"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/GET/Resource"
+   }
+  },
+  "DukeBballApiplayersPOSTApiPermissionDukeBballStackDukeBballApiF4EAD639POSTplayers9D578901": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "CreatePlayerFunctionF778D717",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/",
+       {
+        "Ref": "DukeBballApiDeploymentStageprod60AC889D"
+       },
+       "/POST/players"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/POST/ApiPermission.DukeBballStackDukeBballApiF4EAD639.POST..players"
+   }
+  },
+  "DukeBballApiplayersPOSTApiPermissionTestDukeBballStackDukeBballApiF4EAD639POSTplayersD0C7942D": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "CreatePlayerFunctionF778D717",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:us-east-1:",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "DukeBballApiF66FA60C"
+       },
+       "/test-invoke-stage/POST/players"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/POST/ApiPermission.Test.DukeBballStackDukeBballApiF4EAD639.POST..players"
+   }
+  },
+  "DukeBballApiplayersPOST2919C4EB": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "POST",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "CreatePlayerFunctionF778D717",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "ResourceId": {
+     "Ref": "DukeBballApiplayers9ADDC533"
+    },
+    "RestApiId": {
+     "Ref": "DukeBballApiF66FA60C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/DukeBballApi/Default/players/POST/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02O0W6DMAxFv6XvIdtA/QC6aW/TEN17ZYJHU0iCsCOEovz7lNCpfbrHvva1S1keS/l6gJUK1Y/FpDsZzgxqFLDSJfSbBeP6ToYf6CYU7782QxQTmK4HGT69VaydTdYzN7gYTaSdjUKDkaF1+37Wxk1abXkuUxRUXYAImWSdRFAlT16NyCcgFDDrARhX2GRokbiedc56YK2U85bFB86T2wxaTt2n6sww5Ad2aJGcXxTm+C/kq+uTead/934kc4yPdv4xBWk7pJlvz7PnKJqNr86+VPKtlMfDjbQuFm9ZG5Ttrn92YypucgEAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "DukeBballStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "DukeBballApiEndpoint1F9F469D": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "DukeBballApiF66FA60C"
+      },
+      ".execute-api.us-east-1.",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "DukeBballApiDeploymentStageprod60AC889D"
+      },
+      "/"
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
