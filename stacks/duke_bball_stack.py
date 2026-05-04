@@ -1,10 +1,12 @@
 from aws_cdk import (
     Stack,
     RemovalPolicy,
+    CfnOutput,
     aws_dynamodb as dynamodb,
     aws_lambda as _lambda,
     aws_apigateway as apigw,
     aws_iam as iam,
+    aws_s3 as s3,
     Duration,
 )
 from constructs import Construct
@@ -29,6 +31,27 @@ class DukeBballStack(Stack):
             billing_mode=dynamodb.BillingMode.PAY_PER_REQUEST,
             removal_policy=RemovalPolicy.DESTROY,
         )
+
+        # S3 bucket for player images
+        images_bucket = s3.Bucket(
+            self, "PlayerImagesBucket",
+            block_public_access=s3.BlockPublicAccess(
+                block_public_acls=False,
+                block_public_policy=False,
+                ignore_public_acls=False,
+                restrict_public_buckets=False,
+            ),
+            public_read_access=True,
+            removal_policy=RemovalPolicy.RETAIN,
+            cors=[s3.CorsRule(
+                allowed_methods=[s3.HttpMethods.GET],
+                allowed_origins=["*"],
+                allowed_headers=["*"],
+            )],
+        )
+
+        CfnOutput(self, "ImagesBucketName", value=images_bucket.bucket_name)
+        CfnOutput(self, "ImagesBucketUrl", value=f"https://{images_bucket.bucket_name}.s3.amazonaws.com")
 
         # GSI: query by jersey number
         table.add_global_secondary_index(
@@ -88,6 +111,15 @@ class DukeBballStack(Stack):
             timeout=Duration.seconds(10),
         )
 
+        # Lambda: health check
+        health_fn = _lambda.Function(
+            self, "HealthFunction",
+            runtime=_lambda.Runtime.PYTHON_3_12,
+            handler="health.handler",
+            code=_lambda.Code.from_asset("lambda/players"),
+            timeout=Duration.seconds(5),
+        )
+
         # Grant DynamoDB permissions
         table.grant_read_data(get_players_fn)
         table.grant_write_data(create_player_fn)
@@ -102,22 +134,41 @@ class DukeBballStack(Stack):
             default_cors_preflight_options=apigw.CorsOptions(
                 allow_origins=apigw.Cors.ALL_ORIGINS,
                 allow_methods=apigw.Cors.ALL_METHODS,
+                allow_headers=["Content-Type", "x-api-key"],
             ),
         )
+
+        # API key + usage plan
+        api_key = api.add_api_key("DukeBballApiKey", api_key_name="duke-bball-api-key")
+
+        plan = api.add_usage_plan(
+            "DukeBballUsagePlan",
+            name="duke-bball-usage-plan",
+            throttle=apigw.ThrottleSettings(rate_limit=100, burst_limit=200),
+        )
+        plan.add_api_key(api_key)
+        plan.add_api_stage(stage=api.deployment_stage)
+
+        # Helper to add key-required methods
+        def add_method(resource, http_method, integration):
+            resource.add_method(
+                http_method,
+                integration,
+                api_key_required=True,
+            )
+
+        health = api.root.add_resource("health")
+        add_method(health, "GET", apigw.LambdaIntegration(health_fn))
 
         players = api.root.add_resource("players")
         player = players.add_resource("{player_id}")
         stats = player.add_resource("stats")
 
-        # GET /players, GET /players/{player_id}
-        players.add_method("GET", apigw.LambdaIntegration(get_players_fn))
-        player.add_method("GET", apigw.LambdaIntegration(get_players_fn))
+        add_method(players, "GET", apigw.LambdaIntegration(get_players_fn))
+        add_method(player, "GET", apigw.LambdaIntegration(get_players_fn))
+        add_method(players, "POST", apigw.LambdaIntegration(create_player_fn))
+        add_method(stats, "PUT", apigw.LambdaIntegration(update_stats_fn))
+        add_method(player, "DELETE", apigw.LambdaIntegration(delete_player_fn))
 
-        # POST /players
-        players.add_method("POST", apigw.LambdaIntegration(create_player_fn))
-
-        # PUT /players/{player_id}/stats
-        stats.add_method("PUT", apigw.LambdaIntegration(update_stats_fn))
-
-        # DELETE /players/{player_id}
-        player.add_method("DELETE", apigw.LambdaIntegration(delete_player_fn))
+        # Output the API key ID so you can retrieve the value from the console
+        CfnOutput(self, "ApiKeyId", value=api_key.key_id, description="API Key ID — retrieve value from API Gateway console")

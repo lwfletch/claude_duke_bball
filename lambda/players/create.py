@@ -29,6 +29,9 @@ def handler(event, context):
         "name": body["name"],
         "position": body["position"],
         "jersey_number": str(body["jersey_number"]),
+        "height": body.get("height", ""),
+        "hometown": body.get("hometown", ""),
+        "image_url": body.get("image_url", ""),
         "stats": {
             "games_played": int(body.get("games_played", 0)),
             "points_per_game": float(body.get("points_per_game", 0.0)),
@@ -51,6 +54,11 @@ def handler(event, context):
 def _response(status, body):
     return {
         "statusCode": status,
-        "headers": {"Content-Type": "application/json"},
+        "headers": {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+        },
         "body": json.dumps(body, default=str),
     }
